@@ -1,0 +1,10 @@
+export const LOADING = "LOADING";
+
+export const SEARCH_KEYWORD = "SEARCH_KEYWORD";
+export const BOOKS_RESULT = "BOOKS_RESULT";
+
+export const ADD_FAVORITE = "ADD_FAVORITE";
+export const REMOVE_FAVORITE = "REMOVE_FAVORITE";
+export const UPDATE_FAVORITES = "UPDATE_FAVORITES";
+
+
