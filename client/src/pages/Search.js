@@ -1,12 +1,14 @@
 import React from "react";
 import { Col, Row, Container } from "../components/Grid";
+import SearchHead from "../components/SearchHead"
 
 const Search = () => {
   return (
-    <Container fluid>
+    <Container>
       <Row>
         <Col size="md-12">
-          <h1>Search</h1>
+          <SearchHead />
+
         </Col>
       </Row>
     </Container>
