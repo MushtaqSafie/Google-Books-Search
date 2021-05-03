@@ -1,6 +1,7 @@
 import React from "react";
 import { Col, Row, Container } from "../components/Grid";
-import SearchHead from "../components/SearchHead"
+import SearchHead from "../components/SearchHead";
+import SearchForm from "../components/SearchForm";
 
 const Search = () => {
   return (
@@ -8,7 +9,7 @@ const Search = () => {
       <Row>
         <Col size="md-12">
           <SearchHead />
-
+          <SearchForm />
         </Col>
       </Row>
     </Container>
