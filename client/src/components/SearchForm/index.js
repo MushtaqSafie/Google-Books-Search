@@ -8,20 +8,9 @@ function SearchForm() {
       <div className="form-group">
         {/* <label>Book</label> */}
         <input type="text" className="form-control  col-12"  aria-describedby="searchKeyword" />
-
       </div>
-    
 
-     
-
-      <div className="form-group d-inline-block align-right">
-      <button type="submit" className="btn btn-primary ">Submit</button>
-      
-      </div>
-      <div className="row justify-content-end">
-        
-        </div>
-      
+      <button type="submit" className="btn btn-primary ">Find Book</button>
     </form>
   );
 }
