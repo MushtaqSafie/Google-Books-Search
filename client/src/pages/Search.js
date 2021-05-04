@@ -12,7 +12,6 @@ const Search = () => {
     <Container>
       <SearchHead />
       <SearchForm />
-      
       {state.books[0] && <SearchResults />}
     </Container>
   );

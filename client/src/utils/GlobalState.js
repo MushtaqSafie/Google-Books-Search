@@ -1,7 +1,7 @@
 import React, { createContext, useReducer, useContext } from "react";
 import {
   LOADING,
-  SEARCH_KEYWORD,
+  // SEARCH_KEYWORD,
   BOOKS_RESULT,
   ADD_FAVORITE,
   REMOVE_FAVORITE,
@@ -20,12 +20,12 @@ const reducer = (state, action) => {
       loading: false
     };
 
-  case SEARCH_KEYWORD:
-    return {
-      ...state,
-      searchKeyword: action.searchKeyword,
-      loading: false
-    };
+  // case SEARCH_KEYWORD:
+  //   return {
+  //     ...state,
+  //     searchKeyword: action.searchKeyword,
+  //     loading: false
+  //   };
 
   case ADD_FAVORITE:
     return {
@@ -65,7 +65,7 @@ const StoreProvider = ({ value = [], ...props }) => {
   const [state, dispatch] = useReducer(reducer, {
     books: [],
     favorites: [],
-    searchKeyword: "",
+    // searchKeyword: "",
     loading: false
   });
 
