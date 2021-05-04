@@ -1,12 +1,9 @@
 import React from "react";
-import { Col, Row } from "../../components/Grid";
-import { useStoreContext } from "../../utils/GlobalState";
+import { Col, Row } from "../Grid";
 import ResultsCard from "../ResultsCard";
 
 function SearchResults() {
-  const [state] = useStoreContext();
 
-  console.log(state.books);
   return (
 
     <Row>

@@ -1,7 +1,7 @@
 import React from "react";
-import { Col, Row } from "../../components/Grid";
+import { Col, Row } from "../Grid";
 
-function SearchHead() {
+function HeadTitle() {
 
   return (
     <Row>
@@ -15,4 +15,4 @@ function SearchHead() {
   );
 }
 
-export default SearchHead;
+export default HeadTitle;

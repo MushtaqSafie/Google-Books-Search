@@ -1,16 +1,16 @@
 import React from "react";
-import { Col, Row, Container } from "../components/Grid";
+import { Container } from "../components/Grid";
+import HeadTitle from "../components/HeadTitle";
+import SavedCard from "../components/SavedCard";
 
 const Saved = () => {
   return (
-    <Container fluid>
-      <Row>
-        <Col size="md-12">
-          <h1>Saved</h1>
-        </Col>
-      </Row>
+    <Container>
+      <HeadTitle />
+      <SavedCard/>
     </Container>
   );
 };
 
 export default Saved;
+
