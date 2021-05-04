@@ -8,8 +8,8 @@ function ResultsCard() {
   return (
     <Row>
       <Col size="md-12">
-        {state.books.map((booksResult) => (
-          <div className="card mb-3 p-3" >
+        {state.books.map((booksResult, index) => (
+          <div key={index} className="card mb-3 p-3" >
 
             <div className="d-flex">
               <div className="mr-auto">
