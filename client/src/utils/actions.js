@@ -1,6 +1,5 @@
 export const LOADING = "LOADING";
 
-// export const SEARCH_KEYWORD = "SEARCH_KEYWORD";
 export const BOOKS_RESULT = "BOOKS_RESULT";
 export const RESET_RESULT = "RESET_RESULT";
 

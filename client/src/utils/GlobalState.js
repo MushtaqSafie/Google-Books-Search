@@ -1,7 +1,6 @@
 import React, { createContext, useReducer, useContext } from "react";
 import {
   LOADING,
-  // SEARCH_KEYWORD,
   BOOKS_RESULT,
   ADD_FAVORITE,
   REMOVE_FAVORITE,
@@ -28,13 +27,6 @@ const reducer = (state, action) => {
       loading: true
     };
 
-  // case SEARCH_KEYWORD:
-  //   return {
-  //     ...state,
-  //     searchKeyword: action.searchKeyword,
-  //     loading: false
-  //   };
-
   case ADD_FAVORITE:
     return {
       ...state,
@@ -54,7 +46,8 @@ const reducer = (state, action) => {
       ...state,
       favorites: state.favorites.filter((book) => {
         return book._id !== action._id; 
-      })
+      }),
+      loading: false
     };
 
   // done

@@ -31,7 +31,6 @@ function SearchForm() {
         <form className="mb-5" onSubmit={handleSearch}>
           <h3 className="lead">Book Search</h3>
           <div className="form-group">
-            {/* <label>Book</label> */}
             <input ref={keywordRef} type="text" className="form-control  col-12"  aria-describedby="searchKeyword" />
           </div>
 
