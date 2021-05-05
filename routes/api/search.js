@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const axios = require('axios');
 
-const resultData = [];
+let resultData = [];
 //   {
 //     authors: [],
 //     description: "",
@@ -17,13 +17,14 @@ router
   .route("/:id")
   .get((req, res) => {
     axios.get(`https://www.googleapis.com/books/v1/volumes?q=${req.params.id}+intitle:${req.params.id}&maxResults=10&key=${APIkey}`).then(result => {
+      resultData = [];
       result.data.items.forEach(book => {
         let results = { title: book.volumeInfo.title };
         if (book.volumeInfo.authors) {
           results.authors = book.volumeInfo.authors
         } else { results.authors = [] }
 
-        if (book.volumeInfo.imageLinks.thumbnail) {
+        if (book.volumeInfo.imageLinks) {
           results.image = book.volumeInfo.imageLinks.thumbnail;
         } else { results.image = "" }
 

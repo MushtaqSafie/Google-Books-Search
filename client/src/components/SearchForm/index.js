@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { Col, Row } from "../../components/Grid";
 import { useStoreContext } from "../../utils/GlobalState";
-import { LOADING, BOOKS_RESULT } from '../../utils/actions';
+import { BOOKS_RESULT, RESET_RESULT } from '../../utils/actions';
 import API from "../../utils/API"
 
 function SearchForm() {
@@ -11,9 +11,10 @@ function SearchForm() {
 
   const handleSearch = (e) => {
     e.preventDefault();
-    dispatch({ type: LOADING });
+    dispatch({ type: RESET_RESULT });
     API.getSearch(keywordRef.current.value)
       .then(results => {
+        console.log(results);
         dispatch({
           type: BOOKS_RESULT,
           books: results.data

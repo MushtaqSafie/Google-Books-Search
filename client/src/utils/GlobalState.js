@@ -5,7 +5,8 @@ import {
   BOOKS_RESULT,
   ADD_FAVORITE,
   REMOVE_FAVORITE,
-  UPDATE_FAVORITES
+  UPDATE_FAVORITES,
+  RESET_RESULT
 } from "./actions";
 
 const StoreContext = createContext();
@@ -18,6 +19,13 @@ const reducer = (state, action) => {
       ...state,
       books: [...action.books],
       loading: false
+    };
+    
+  case RESET_RESULT:
+    return {
+      ...state,
+      books: [],
+      loading: true
     };
 
   // case SEARCH_KEYWORD:
