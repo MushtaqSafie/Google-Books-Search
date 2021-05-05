@@ -1,9 +1,23 @@
 import React from "react";
 import { Col, Row } from "../Grid";
 import { useStoreContext } from "../../utils/GlobalState";
+import { REMOVE_FAVORITE, LOADING } from "../../utils/actions";
+import API from "../../utils/API";
 
 function SavedCard() {
-  const [state] = useStoreContext();
+  const [state, dispatch] = useStoreContext();
+
+  const handleDelete = (id) => {
+    dispatch({ type: LOADING })
+    API.deleteSaveBook(id)
+    .then(() => {
+      dispatch({
+        type: REMOVE_FAVORITE,
+        _id: id
+      })
+    })
+    .catch(err => console.log(err));
+  }
 
   return (
     
@@ -20,7 +34,7 @@ function SavedCard() {
                     <h4 className="my-2">{item.title}</h4>
                   </div>
                   <a className="btn btn-outline-primary m-1" target="_blank" href={item.link} rel="noreferrer">View</a>
-                  <button type="button" className="btn btn-outline-danger m-1">Delete</button>
+                  <button type="button" onClick={() => handleDelete(item._id)} className="btn btn-outline-danger m-1">Delete</button>
                 </div>
 
                 <blockquote className="blockquote">

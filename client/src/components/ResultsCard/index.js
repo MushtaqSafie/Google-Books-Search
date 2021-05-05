@@ -1,13 +1,22 @@
 import React from "react";
 import { Col, Row } from "../../components/Grid";
 import { useStoreContext } from "../../utils/GlobalState";
+import { ADD_FAVORITE, LOADING } from "../../utils/actions";
 import API from "../../utils/API";
 
 function ResultsCard() {
-  const [state] = useStoreContext();
+  const [state, dispatch] = useStoreContext();
   
-  const handleSave = (id) => {    
+  const handleSave = (id) => {
+    dispatch({ type: LOADING });
     API.addSaveBook(state.books[id])
+    .then((result) => {
+      dispatch({
+        type: ADD_FAVORITE,
+        post: result.data,
+      });
+    })
+    .catch((err) => console.log(err));
   }
 
   return (

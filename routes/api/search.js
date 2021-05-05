@@ -10,7 +10,7 @@ let resultData = [];
 //     title: ""
 //   }  
 
-const APIkey = "";
+const APIkey = "AIzaSyC8ttSY383X6kfnCQEtKkI_DJ4OhqUtcnk";
 
 // Matches with "/api/search/:id"
 router
