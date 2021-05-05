@@ -33,24 +33,22 @@ function SavedCard() {
                   <div className="mr-auto">
                     <h4 className="my-2">{item.title}</h4>
                   </div>
-                  <a className="btn btn-outline-primary m-1" target="_blank" href={item.link} rel="noreferrer">View</a>
-                  <button type="button" onClick={() => handleDelete(item._id)} className="btn btn-outline-danger m-1">Delete</button>
+                  <a className="btn btn-outline-primary m-1" target="_blank" href={item.link} rel="noreferrer" style={{maxHeight: "40px"}}>View</a>
+                  <button type="button" onClick={() => handleDelete(item._id)} className="btn btn-outline-danger m-1" style={{maxHeight: "40px"}} >Delete</button>
                 </div>
 
                 <blockquote className="blockquote">
                   <footer className="blockquote-footer">Written By <cite title="authors">{item.authors.join(", ")}</cite></footer>
                 </blockquote>
 
-                <div className="row no-gutters">
-                  <div className="col-md-2">
-                    <img src={item.image} alt="bookImage"/>
-                  </div>
-                  <div className="col-md-10">
-                    <div className="card-body">
-                      <p className="card-text">{item.description}</p>
-                    </div>
-                  </div>
-                </div>
+                <Row>
+                  <Col size="md-3 sm-4 lg-2">
+                    <img className="mb-3" src={item.image} alt="bookImage"/>
+                  </Col>
+                  <Col size="md-9 sm-8 lg-10">
+                    <p className="card-text">{item.description}</p>
+                  </Col>
+                </Row>
 
               </div>
             ))}
