@@ -38,7 +38,7 @@ const reducer = (state, action) => {
   case ADD_FAVORITE:
     return {
       ...state,
-      favorites: [action.book, ...state.favorites],
+      favorites: [action.favorites, ...state.favorites],
       loading: false
     };
 

@@ -6,6 +6,10 @@ export default {
   getBooks: function() {
     return axios.get("/api/books");
   },
+  // Gets all books
+  addSaveBook: function(bookData) {
+    return axios.post("/api/books", bookData);
+  },
   // search for books via Google API
   getSearch: function(keyword) {
     return axios.get("/api/search/" + keyword)

@@ -1,9 +1,14 @@
 import React from "react";
 import { Col, Row } from "../../components/Grid";
 import { useStoreContext } from "../../utils/GlobalState";
+import API from "../../utils/API";
 
 function ResultsCard() {
   const [state] = useStoreContext();
+  
+  const handleSave = (id) => {    
+    API.addSaveBook(state.books[id])
+  }
 
   return (
     <Row>
@@ -16,7 +21,7 @@ function ResultsCard() {
                 <h4 className="my-2">{booksResult.title}</h4>
               </div>
               <a className="btn btn-outline-primary m-1" target="_blank" href={booksResult.link} rel="noreferrer">View</a>
-              <button type="button" className="btn btn-outline-success m-1">Save</button>
+              <button type="button" onClick={() => handleSave(index)} className="btn btn-outline-success m-1">Save</button>
             </div>
 
             <blockquote className="blockquote">

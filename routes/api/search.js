@@ -16,7 +16,7 @@ const APIkey = "";
 router
   .route("/:id")
   .get((req, res) => {
-    axios.get(`https://www.googleapis.com/books/v1/volumes?q=${req.params.id}+intitle:${req.params.id}&maxResults=10&key=${APIkey}`).then(result => {
+    axios.get(`https://www.googleapis.com/books/v1/volumes?q=${req.params.id}+intitle:${req.params.id}&maxResults=25&key=${APIkey}`).then(result => {
       resultData = [];
       result.data.items.forEach(book => {
         let results = { title: book.volumeInfo.title };
