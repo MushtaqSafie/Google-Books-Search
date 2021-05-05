@@ -24,7 +24,10 @@ const Search = () => {
 
   return (
     <Container>
-      <HeadTitle />
+      <HeadTitle
+        title="Google Books Search"
+        subTitle="Search for and Save Books of Interest"  
+      />
       <SearchForm />
       {state.books[0] && <SearchResults />}
     </Container>

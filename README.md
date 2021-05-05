@@ -3,17 +3,26 @@
 ## Description
 Google Books Search app is React-based appliaction build with MongoDB, Express, React, and Node.js (MERN framework).
 
+### Deployed application
+> [Google Books Search](https://books-search-841.herokuapp.com/)
+
 ## Table of Contents
 - [Description](#Description)
-- [Feactures](#Feactures)
+- [Technology Used](#Technology-Used)
+- [Mean Feactures](#Mean-Feactures)
 - [ScreenShot](#ScreenShot)
 - [Questions](#Questions)
 
+## Technology Used
+* MongoDB
+* Express
+* React
+* Node.js
 
-## Feactures
-* Search for books via Google Books API
-* Save & View favourite books with MongoDB
-s
+## Mean Feactures
+* Search for books via Google Books API.
+* Save, View, and Delete books from the Saved Books.
+
 ## ScreenShot
 ![ScreenShot1](https://raw.githubusercontent.com/MushtaqSafie/Google-Books-Search/main/media/1.JPG)
 ![ScreenShot2](https://raw.githubusercontent.com/MushtaqSafie/Google-Books-Search/main/media/2.JPG)

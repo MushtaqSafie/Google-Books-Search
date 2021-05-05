@@ -24,10 +24,10 @@ function SavedCard() {
     
     <Row>
       <Col size="md-12">
-        <h3 className="lead">Saved</h3>
+        <h3 className="lead">Saved Books</h3>
         <Row>
           <Col size="md-12">
-            {state.favorites.map((item, index) => (
+            {state.favorites.reverse().map((item, index) => (
               <div key={index} className="card mb-3 p-3" >
 
                 <div className="d-flex">

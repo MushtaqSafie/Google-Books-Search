@@ -23,7 +23,10 @@ const Saved = () => {
 
   return (
     <Container>
-      <HeadTitle />
+      <HeadTitle 
+        title="Save Books"
+        subTitle="Search for and Save Books of Interest" 
+      />
       {state.favorites[0] && <SavedCard/>}
     </Container>
   );
