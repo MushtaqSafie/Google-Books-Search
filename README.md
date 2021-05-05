@@ -6,7 +6,7 @@ Google Books Search app is React-based appliaction build with MongoDB, Express, 
 ## Table of Contents
 - [Description](#Description)
 - [Feactures](#Feactures)
-- [License](#License)
+- [ScreenShot](#ScreenShot)
 - [Questions](#Questions)
 
 
