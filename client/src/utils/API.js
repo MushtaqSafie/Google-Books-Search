@@ -6,6 +6,10 @@ export default {
   getBooks: function() {
     return axios.get("/api/books");
   },
+  // Gets all books
+  findBookById: function(id) {
+    return axios.get("/api/books/"+ id);
+  },
   // Post a save book
   addSaveBook: function(bookData) {
     return axios.post("/api/books", bookData);

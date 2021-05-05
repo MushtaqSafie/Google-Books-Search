@@ -2,12 +2,13 @@ import React from "react";
 import { useLocation } from "react-router-dom";
 import { useStoreContext } from "../../utils/GlobalState";
 import logo from "../../logo.png";
-import { BsSearch } from "react-icons/bs";
+import { BsSearch, BsBookmarksFill } from "react-icons/bs";
 import { RiSaveFill } from "react-icons/ri";
 import { BiLoader } from "react-icons/bi";
 
+
 function Nav() {
-  const [store] = useStoreContext();
+  const [state] = useStoreContext();
   const location = useLocation().pathname;
 
   return (
@@ -21,12 +22,12 @@ function Nav() {
           <a className="nav-link" href="/search" ><BsSearch/> Search</a>
         </li>
         <li className={"nav-item "+ ("/saved"===location&&"active")}>
-          <a className="nav-link" href="/saved"><RiSaveFill/> Saved</a>
+          <a className="nav-link" href="/saved"><RiSaveFill/> Saved <span className="badge badge-info"><BsBookmarksFill/>{state.favorites.length} Books</span></a>
         </li>
       </ul>
 
        {/* eslint-disable-next-line */}
-      {store.loading ? <a className="navbar-brand ml-auto"><BiLoader/> Loading...</a> : <></>}
+      {state.loading ? <a className="navbar-brand ml-auto"><BiLoader/> Loading...</a> : <></>}
     </nav>
   );
 }

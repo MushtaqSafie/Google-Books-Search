@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Col, Row } from "../../components/Grid";
 import { useStoreContext } from "../../utils/GlobalState";
-import { ADD_FAVORITE, LOADING } from "../../utils/actions";
+import { ADD_FAVORITE, LOADING, UPDATE_FAVORITES } from "../../utils/actions";
 import API from "../../utils/API";
 import { RiSaveFill } from "react-icons/ri";
 
@@ -14,20 +14,36 @@ const style = {
 
 function ResultsCard() {
   const [state, dispatch] = useStoreContext();
-  const [notify, setNotify] = useState(false);
-  
+  const [notifySuccess, setNotifySuccess] = useState(false);
+  const [notifyExists, setNotifyExists] = useState(false)
+
   const handleSave = (id) => {
     dispatch({ type: LOADING });
-    API.addSaveBook(state.books[id])
-    .then((result) => {
-      dispatch({
-        type: ADD_FAVORITE,
-        post: result.data,
-      });
-      setNotify(true)
+
+    API.getBooks().then(res => {
+      // check if table already exists in the database
+      const checkItem = res.data.find( ({ title }) => title  === state.books[id].title);
+      if (checkItem) {
+        dispatch({
+          type: UPDATE_FAVORITES,
+          favorites: res.data
+        })
+        setNotifyExists(true)
+        setTimeout(() => setNotifyExists(false), 2000);
+      } else {
+        API.addSaveBook(state.books[id])
+        .then((result) => {
+          dispatch({
+            type: ADD_FAVORITE,
+            post: result.data,
+          });
+          setNotifySuccess(true)
+        })
+        .catch((err) => console.log(err));
+        setTimeout(() => setNotifySuccess(false), 1000);
+      }
     })
-    .catch((err) => console.log(err));
-    setTimeout(() => setNotify(false), 1000);
+    .catch(err => console.log(err));
   }
 
   return (
@@ -59,9 +75,13 @@ function ResultsCard() {
 
           </div>
         ))}
-        {notify &&
+        {notifySuccess &&
         <div className="alert alert-success notify" role="alert" style={style}>
           Succeccfully added!
+        </div>}
+        {notifyExists &&
+        <div className="alert alert-danger notify" role="alert" style={style}>
+          This book is already in your Saved Library!
         </div>}
 
       </Col>

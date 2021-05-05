@@ -20,7 +20,6 @@ function SearchForm() {
       dispatch({ type: RESET_RESULT });
       API.getSearch(keywordRef.current.value)
         .then(results => {
-          console.log(results);
           dispatch({
             type: BOOKS_RESULT,
             books: results.data
