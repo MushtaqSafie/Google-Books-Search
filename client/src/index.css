@@ -3,3 +3,24 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+@media only screen and (max-width: 2200px) {
+  .bookTitle {
+    max-width: 75%;
+  }
+}
+@media only screen and (max-width: 922px) {
+  .bookTitle {
+    max-width: 70%;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .bookTitle {
+    max-width: 60%;
+  }
+}
+@media only screen and (max-width: 576px) {
+  .bookTitle {
+    max-width: 55%;
+  }
+}

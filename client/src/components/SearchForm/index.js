@@ -2,7 +2,8 @@ import React, { useRef, useState } from "react";
 import { Col, Row } from "../../components/Grid";
 import { useStoreContext } from "../../utils/GlobalState";
 import { BOOKS_RESULT, RESET_RESULT } from '../../utils/actions';
-import API from "../../utils/API"
+import API from "../../utils/API";
+import { BsSearch } from "react-icons/bs";
 
 function SearchForm() {
   const [state, dispatch] = useStoreContext();
@@ -46,7 +47,7 @@ function SearchForm() {
           </div>
           }
 
-          <button type="submit" className="btn btn-primary ">Find Book</button>
+          <button type="submit" className="btn btn-primary "><BsSearch/> Search Book</button>
         </form>
       </Col>
    </Row>
