@@ -9,7 +9,7 @@ function SavedCard() {
     
     <Row>
       <Col size="md-12">
-        <h3 className="lead">Results</h3>
+        <h3 className="lead">Saved</h3>
         <Row>
           <Col size="md-12">
             {state.favorites.map((item, index) => (
@@ -20,7 +20,7 @@ function SavedCard() {
                     <h4 className="my-2">{item.title}</h4>
                   </div>
                   <a className="btn btn-outline-primary m-1" target="_blank" href={item.link} rel="noreferrer">View</a>
-                  <button type="button" className="btn btn-outline-success m-1">Save</button>
+                  <button type="button" className="btn btn-outline-danger m-1">Delete</button>
                 </div>
 
                 <blockquote className="blockquote">

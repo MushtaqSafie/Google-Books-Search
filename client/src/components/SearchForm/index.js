@@ -12,7 +12,7 @@ function SearchForm() {
   const handleSearch = (e) => {
     e.preventDefault();
     dispatch({ type: LOADING });
-    API.getSearch(keywordRef)
+    API.getSearch(keywordRef.current.value)
       .then(results => {
         dispatch({
           type: BOOKS_RESULT,
