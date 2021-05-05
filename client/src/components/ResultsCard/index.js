@@ -16,6 +16,7 @@ function ResultsCard() {
   const [state, dispatch] = useStoreContext();
   const [notifySuccess, setNotifySuccess] = useState(false);
   const [notifyExists, setNotifyExists] = useState(false)
+  const [notifyTitle, setNotifyTitle] = useState("")
 
   const handleSave = (id) => {
     dispatch({ type: LOADING });
@@ -28,7 +29,8 @@ function ResultsCard() {
           type: UPDATE_FAVORITES,
           favorites: res.data
         })
-        setNotifyExists(true)
+        setNotifyExists(true);
+        setNotifyTitle(state.books[id].title);
         setTimeout(() => setNotifyExists(false), 2000);
       } else {
         API.addSaveBook(state.books[id])
@@ -37,7 +39,8 @@ function ResultsCard() {
             type: ADD_FAVORITE,
             post: result.data,
           });
-          setNotifySuccess(true)
+          setNotifySuccess(true);
+          setNotifyTitle(state.books[id].title);
         })
         .catch((err) => console.log(err));
         setTimeout(() => setNotifySuccess(false), 1000);
@@ -77,10 +80,12 @@ function ResultsCard() {
         ))}
         {notifySuccess &&
         <div className="alert alert-success notify" role="alert" style={style}>
+          <p><strong>Title:</strong> {notifyTitle}</p>
           Succeccfully added!
         </div>}
         {notifyExists &&
         <div className="alert alert-danger notify" role="alert" style={style}>
+          <p><strong>Title:</strong> {notifyTitle}</p>
           This book is already in your Saved Library!
         </div>}
 

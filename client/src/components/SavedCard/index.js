@@ -1,12 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { Col, Row } from "../Grid";
 import { useStoreContext } from "../../utils/GlobalState";
 import { REMOVE_FAVORITE, LOADING } from "../../utils/actions";
 import API from "../../utils/API";
 import { RiDeleteBin6Fill } from "react-icons/ri";
 
+const style = {
+  position: "fixed",
+  top: "10px",
+  right: "10px",
+  width: "300px",
+}
+
 function SavedCard() {
   const [state, dispatch] = useStoreContext();
+  const [notifySuccess, setNotifySuccess] = useState(false);
+
 
   const handleDelete = (id) => {
     dispatch({ type: LOADING })
@@ -16,8 +25,10 @@ function SavedCard() {
         type: REMOVE_FAVORITE,
         _id: id
       })
+      setNotifySuccess(true)
     })
     .catch(err => console.log(err));
+    setTimeout(() => setNotifySuccess(false), 2000);
   }
 
   return (
@@ -53,6 +64,10 @@ function SavedCard() {
 
               </div>
             ))}
+            {notifySuccess &&
+            <div className="alert alert-danger notify" role="alert" style={style}>
+              Delete Succeccfully!
+            </div>}
           </Col>
         </Row>
 
