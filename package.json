@@ -24,7 +24,7 @@
   "homepage": "https://github.com/MushtaqSafie/Google-Books-Search#readme",
   "devDependencies": {
     "concurrently": "^6.0.2",
-    "nodemon": "^2.0.7"
+    "nodemon": "^2.0.20"
   },
   "dependencies": {
     "axios": "^0.21.1",
